@@ -20,7 +20,7 @@ public class UserController {
         }
     }
 
-    @DeleteMapping("/deleteUser")
+    @DeleteMapping("/delete")
     public String deleteUserById(@RequestBody String token){
         boolean deleted = userService.deleteUser(token);
         if(deleted){

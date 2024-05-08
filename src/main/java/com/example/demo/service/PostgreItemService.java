@@ -16,7 +16,6 @@ public class PostgreItemService {
         return repository.findAll();
     }
 
-
     public Item findItemById(Long id) {
         return repository.findById(id).orElse(null);
     }
