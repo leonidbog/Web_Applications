@@ -12,7 +12,7 @@ import java.util.List;
 public class ItemController {
     private PostgreItemService shopService;
 
-    @GetMapping("allIcecreams")
+    @GetMapping("all-icecreams")
     public List<Item> findAllItems() {
         return shopService.findAllItems();
     }
@@ -22,17 +22,17 @@ public class ItemController {
         return shopService.findItemById(id);
     }
 
-    @PostMapping("saveIcecreams")
+    @PostMapping("add-icecream")
     public Item saveItem(@RequestBody Item item) {
         return shopService.saveItem(item);
     }
 
-    @PostMapping("editIcecreams")
+    @PostMapping("edit-icecreams")
     public Item updateItem(@RequestBody Item item) {
         return shopService.updateItem(item);
     }
 
-    @DeleteMapping("deleteIcecreams/{id}")
+    @DeleteMapping("delete-icecreams/{id}")
     public void deleteItemById(@PathVariable Long id) {
         shopService.deleteItemById(id);
     }

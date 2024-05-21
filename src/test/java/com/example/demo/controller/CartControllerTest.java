@@ -27,11 +27,6 @@ public class CartControllerTest {
     @MockBean
     private ShoppingCartService cartService;
 
-    @BeforeEach
-    void setUp() {
-        // setup code here if needed
-    }
-
     @Test
     public void addItem_ShouldReturnSuccessMessage() throws Exception {
         when(cartService.addItem(anyLong(), anyString())).thenReturn(true);

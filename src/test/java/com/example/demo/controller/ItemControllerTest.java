@@ -42,7 +42,7 @@ public class ItemControllerTest {
         String jsonItems = objectMapper.writeValueAsString(items);
         when(shopService.findAllItems()).thenReturn(items);
 
-        mockMvc.perform(get("/allIcecreams"))
+        mockMvc.perform(get("/all-icecreams"))
                 .andExpect(status().isOk())
                 .andExpect(content().json(jsonItems));
     }
@@ -65,7 +65,7 @@ public class ItemControllerTest {
         String jsonItem = objectMapper.writeValueAsString(item);
         when(shopService.saveItem(any(Item.class))).thenReturn(item);
 
-        mockMvc.perform(post("/saveIcecreams")
+        mockMvc.perform(post("/add-icecream")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonItem))
                 .andExpect(status().isOk())
@@ -78,7 +78,7 @@ public class ItemControllerTest {
         String jsonItem = objectMapper.writeValueAsString(item);
         when(shopService.updateItem(any(Item.class))).thenReturn(item);
 
-        mockMvc.perform(post("/editIcecreams")
+        mockMvc.perform(post("/edit-icecreams")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonItem))
                 .andExpect(status().isOk())
@@ -90,7 +90,7 @@ public class ItemControllerTest {
         Long id = 1L;
         doNothing().when(shopService).deleteItemById(id);
 
-        mockMvc.perform(delete("/deleteIcecreams/{id}", id))
+        mockMvc.perform(delete("/delete-icecreams/{id}", id))
                 .andExpect(status().isOk());
     }
 }

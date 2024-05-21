@@ -24,8 +24,8 @@ public class CartController {
 
     @DeleteMapping("cart/remove")
     public String removeItem(@RequestParam Long itemId, @RequestParam String token){
-        boolean added = cartService.deleteItem(itemId, token);
-        if (added) {
+        boolean deleted = cartService.deleteItem(itemId, token);
+        if (deleted) {
             return "Icecream deleted";
         }else{
             return "Invalid token";
